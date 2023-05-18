@@ -1,0 +1,24 @@
+--CibersercurityLinuxBasic--
+
+--Diferences between grep and egrep--
+
+--Using Sed to find a Replace--
+
+*Search for the word mysql in the snort.conf file using grep, like so:*
+
+$ cat /etc/snort/snort.conf | grep mysql
+
+*Save the output in another file and  replace every occurence of mysql witth MySQL
+
+$ sed /s/mysql/MySQL/g /etc/snort/snort.conf > snort2.conf
+
+(Use sed to find an replace keyword and phrases)
+
+/ = separated 
+g =  globally
+s = search
+...................
+s = search
+%>> / mysql = we are searching mysql
+%>>>>>>/MySQL = we are replacing with it
+
