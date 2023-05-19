@@ -22,3 +22,12 @@ s = search
 %>> / mysql = we are searching mysql
 %>>>>>>/MySQL = we are replacing with it
 
+#Replace only the second occurence (word)
+
+$ sed /s/mysql/MySQL/2 /etc/snort/snort.conf > snort2.conf
+
+#For working  with scroll with larger files(more and less)
+
+--Controlling the Display with more--
+
+-> use "n" to highlight and search move between words
