@@ -31,3 +31,17 @@ $ sed /s/mysql/MySQL/2 /etc/snort/snort.conf > snort2.conf
 --Controlling the Display with more--
 
 -> use "n" to highlight and search move between words
+
+--usr/share/wordlist/metsaploit = directory of mutliple wordlist ( cand be used to brute force passwords in  various passowrd protected devices using Metasplit(most popular pentesting and hacking framework)
+
+>>>>> there are not longer passwords.lst in the file instead of passwords is a tar file that contain more than 14 million passwords but you need to use gunzip to decompress the file to use it because is a long file of over 14 million passwords
+
+Note: gunzip = Command reduces the size of named files to decompress it 
+
+>>>>>> gunzip = is used to unzip files that have benn compressed with the gzip algorthm( lossless compression algorithm that reduces the size of a file without losing data)
+
+>>>>>> tar -xvf = is used to extract only one or more files  and can be used to create list, and extract files from archives.
+
+>> the difference betwen them is that gunzip extract everything and with that you could only extract one or do more.
+
+--3-Analyzing and managing networks--
