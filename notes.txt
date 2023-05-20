@@ -45,3 +45,28 @@ Note: gunzip = Command reduces the size of named files to decompress it
 >> the difference betwen them is that gunzip extract everything and with that you could only extract one or do more.
 
 --3-Analyzing and managing networks--
+
+Understanding networking is crucial for any aspiring hacker( a good hacker nees to know how to connect to and interact with that network understanding:
+
+Internet Protocol(IP)
+Domain Name System(DNS)
+Media Access Control(MAC) 
+Network Interface Card(NIC)
+Boradcast Addresss...
+
+--Analyzing networks with ifconfig--
+
+ifconfig - to get network information
+output:
+1)ethoLinkencap:EthernetHWaddr 00:0c29:ba:82:of 
+2)inet addr:192.168.181.131 3)Bcast:192.168.181.255 4)Mask:255.255.255.0
+5)lo Linkencap: Local Loopback
+inet addr:127.0.0.1 Mask:255.0.0.0
+--snip--
+6)wlan0 Link encap:EthernetHWaddr 00:c0:ca:3f:ee:02
+ IS short for Ethernet0( linux start counti at 0 rathern than 1) the ethener interfaces show up the same format(eth1, eth2 and so forth) and is listed followed by Haddr and the address is stamped on every piece of network NIC usually reffered to as the MAC address
+
+2) contains the IP address is currently assigned to that network interface(192.168.131)
+
+3)Broadcast Adress(Bcast) (address used to send out the information to all IPs on the subnet)
+
