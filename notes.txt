@@ -52,7 +52,9 @@ Internet Protocol(IP)
 Domain Name System(DNS)
 Media Access Control(MAC) 
 Network Interface Card(NIC)
+Local Area Network(LAN)
 Boradcast Addresss...
+
 
 --Analyzing networks with ifconfig--
 
@@ -69,4 +71,14 @@ inet addr:127.0.0.1 Mask:255.0.0.0
 2) contains the IP address is currently assigned to that network interface(192.168.131)
 
 3)Broadcast Adress(Bcast) (address used to send out the information to all IPs on the subnet)
+
+4)Network Mask(used to determine what part of the IP address is connected to the local network)
+
+5)Is a short for loopback address and is sometimes called localhost(lo)(localhost is represented 127.0.0.1)
+
+6)The third connectio is wlan0(appears only if we have a wirless interfaceor adapter, as I do here and also displays the MAC address of that device(HWaddr)
+
+the infomration of ifconfign enables to connect and manipulate our local area network(LAN) settings and essential skill for hacking
+
+--Checking wireless network devices with iwconfig--
 
