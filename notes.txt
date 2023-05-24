@@ -82,3 +82,69 @@ the infomration of ifconfign enables to connect and manipulate our local area ne
 
 --Checking wireless network devices with iwconfig--
 
+iwconfig = to gather crucial information for wireless hacking such as IP, it's MAC address, what mode it's in, and more. The informaiton you can glean from this command is particularly important when you're using wireless hacking tools like aircrack-ng.
+
+$ iwconfig 
+
+wlano IEEE 8o2.11bg ESSID:off/any
+Mode:Managed Access Point: Not Associated Tx-Power=20 dBm
+--snip--
+lo no wireless extensions
+
+etho no wireless extensions
+
+#the output tells us that the only network interface with wireless extensions is wlan0, which is what we would expect. Neither lo nor eth0 has any wireless extensions
+
+#Our device wlan0 and says that the IEEE 8o1.11 is capable if b: and g, two early wirless communication standars and most wireless devices now include n  as well)n is the latest standard).
+
+#and mode:Managed in constrat to monitor or promiscous mode, we'll need promiscous mode(cracking wireless passwords)
+
+#we can see that the wireless adapter is not connected(Not Associated) to an Access Point(AP) and that its power is 20 dBm, which represent the strength of signal. We'll spend more time with  the chapter    .
+
+
+--Changing your networkin Information--
+
+A skill full ability is to being able to change your IP address for example ina denial-of-service(DoS) attack, and can spoof your IP so that the attack appears to come from another source, thus helping you evade IP capture during forensic analysis. This si a relatively simple task in Linux, and it's doen with the ifconfig 
+
+--Changing your IPAddress--
+
+ifconfig eth0 192.168.181.115
+
+#Linux will sumply return the command prompt and say nothing that is a good thing that yout IP address has changed to new IP address you just assigned.
+
+--Spoofing your MAC Address--
+
+Is possible to change your mac address using  ifconfig as well this tehcnique is useful for bypassin network access controls.
+to spoof you MAC address use the command down option to tkae down the interface(eth0)
+
+Is possible to change your mac address using  ifconfig as well this tehcnique is useful for bypassin network access controls.
+to spoof you MAC address use the command down option to tkae down the interface(eth0), then if command folllwed by the hw(hardware and thernet and the new spoofed address and finally we up option to change to tkae place:
+
+$ ifconfig eth0 down
+
+$ ifconfig eth0 hw ether 00:11:22:33:44:55
+ 
+$ ifconfig eth0 up
+
+and now check again ifconfig if has changed we could run it again.
+
+--Assigning New Ip Addresses from the DHCP Server--
+
+Linux has a dameon(a process that runs in the background) (dhcpd) of the Dymanic Host Configuration Protocol(DHCP).. is makes a great resource for forensic analysts to trace hackers with after an attack(it's useful to understand how the DHCP server, protocl works)
+
+To request an IP address from DHCP, simply call the DHCP server with the command(dhclient) folowed by the interface you wnat the address assigned to different distributtion uses different clients but debian uses dhclient:
+
+$ dhclient eth0
+
+The dhclient command sends a DHCPDISCOVER request from the network interface specified(eht0) and then receives an offer(DHCPOFFER) from the DHCP server(192.168.182.131) and confirmst he Ip assignment the DHCP server with a dhcp request
+
+$ ifconfig
+
+Dependinf the configuraiton of the DHCP server the Ip address assigned in each case might be different.
+
+--Manipulating the domain name system--
+
+Hackers cand find a treasure trove of information on a target in it s Domain Name System(DNS); is a critical component of the internet, altough it's designed to translate domain names to IP addresses a hacker can use it to garner information on the target
+
+
+-Examining-DNS-with-dig
