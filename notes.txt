@@ -147,4 +147,15 @@ Dependinf the configuraiton of the DHCP server the Ip address assigned in each c
 Hackers cand find a treasure trove of information on a target in it s Domain Name System(DNS); is a critical component of the internet, altough it's designed to translate domain names to IP addresses a hacker can use it to garner information on the target
 
 
--Examining-DNS-with-dig
+-Examining-DNS-with-dig-
+
+One of the most useful ommands for the aspiring hacker(dig) which offers a way together DNS about a target domain. The stored DNS inofmration can be a key piece of early reconnaissance to obtain before attacking.
+
+For instance enter dig hackers-arise.com and add the ns option(nameserver). The nameserver for hackers-arise.com is displayed in the ANSWER SECTION:
+
+$ dig hackers-arise.com ns
+
+ADDITIONAL SECTION the query reveals the ip of the dns server sercing hackers-arise.com(this information is critical for attacks on email systems)( for exmpale info the ww... email servers is shown in the AUTHORITY SECTION
+
+
+$ dig hackers-arise.com ns
