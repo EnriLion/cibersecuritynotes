@@ -159,3 +159,61 @@ ADDITIONAL SECTION the query reveals the ip of the dns server sercing hackers-ar
 
 
 $ dig hackers-arise.com ns
+
+; <<>> DiG 9.18.12-0ubuntu0.22.04.1-Ubuntu <<>> hackers-arise.com ns
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 42960
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 65494
+;; QUESTION SECTION:
+;hackers-arise.com.		IN	NS
+
+;; ANSWER SECTION:
+hackers-arise.com.	21600	IN	NS	ns6.wixdns.net.
+hackers-arise.com.	21600	IN	NS	ns7.wixdns.net.
+
+;; Query time: 148 msec
+;; SERVER: 127.0.0.53#53(127.0.0.53) (UDP)
+;; WHEN: Thu May 25 16:48:01 CST 2023
+;; MSG SIZE  rcvd: 92
+
+#dg command to get information on email servers connected to a domain by adding the mx(mail exchange server) option. This information is critical for attacks on eamil systems; below shows the informations is critifical ofr attacks on email systems ( info of the wwws.hackers-arise.com email servers is shown in the AUTHORITY SECTION 
+
+$ dig hackers-arise.com mx
+
+--snip--
+
+;; QUESTION SECTION:
+;hackers-arise.com.		IN	MX
+
+;; ANSWER SECTION:
+hackers-arise.com.	3600	IN	MX	40 alt3.aspmx.l.google.com.
+hackers-arise.com.	3600	IN	MX	30 alt2.aspmx.l.google.com.
+hackers-arise.com.	3600	IN	MX	10 aspmx.l.google.com.
+hackers-arise.com.	3600	IN	MX	50 alt4.aspmx.l.google.com.
+hackers-arise.com.	3600	IN	MX	20 alt1.aspmx.l.google.com.
+
+--snip--
+
+The most common Linux DNS server is the Berkley Internet Name Domain(BIND). In some cases, Linux users will refer to DNS as BIND(DNS and BIND both map indindividual domain names to IP addresses)
+
+--Changing your DNS Server-
+
+vim /etc/resolv.conf (or wether editor you liked)
+
+you could changed it with the DNS of google nameserver 8.8.8.8
+
+we could achieved it as well as doing redirection i/o:
+
+echo "nameserver 8.8.8.8" > /etc/resolv.conf
+
+#Your system will got to the Google public DNS server to resolve domain names to IP addesses(domain names take a little longer to resolve(probably milisencods) therefore to maintain speed but keep the option of using a public server, you might want to retain the resolv.conf file and follow it with a DNS server
+
+#Note: If you're using a DHCP address and the DHCP server provides a DNS setting, the DHCP server will replace the contents of the file when it renews the DHCP address
+
+--Mapping your own ip addresses-
+
+hosts file  = performs domain name(IP address translation) and is located at /etc/hosts 
