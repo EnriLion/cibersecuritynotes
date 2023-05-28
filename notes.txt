@@ -216,4 +216,20 @@ echo "nameserver 8.8.8.8" > /etc/resolv.conf
 
 --Mapping your own ip addresses-
 
-hosts file  = performs domain name(IP address translation) and is located at /etc/hosts 
+hosts file  = performs domain name(IP address translation) and is located at /etc/hosts and kind of as with DNS(you can use it to specify your own IP addresses - domain name mapping(can determine which IP address your browser goes in other domain in our browser. As a hacker this can be useful for hijacking a TCP connection on our lcoal area network to direct traffic to a malicious web server with a tool such(dnsspoof)
+
+The hosts file contains only a mapping for your localhost, at 127.0.0.1 we can add IP address mapped to any domain we want. As an exapmle: we could map www.bankofamerica.com (192.168.181.131)
+
+
+127.0.0.1	localhost
+127.0.1.1	leon
+192.168.181.131 bankofamerica.com
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+
+The endeavors like dnsspoof and Ettercap to direct any traffic on your LAN(www.bankofamerica.com) to our web server

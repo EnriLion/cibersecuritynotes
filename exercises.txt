@@ -1,0 +1,13 @@
+--chapter 4--
+
+#Find infomration of network interfaces
+
+#Change the IP addes on eth0 to 192.168.1.1
+
+#Check whether you have any available wireless interfaces active.
+
+#Reset IP address(DHCP-assigned address)
+
+#Find the nameserver and email server of our favorite website
+
+#Add Google's DNS server to our /etc/resolv.conf file so our system refers to that server when it can't resolve a domain name query with you local DNS Server
