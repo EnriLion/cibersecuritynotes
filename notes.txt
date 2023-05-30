@@ -233,3 +233,34 @@ ff02::1 ip6-allnodes
 ff02::2 ip6-allrouters
 
 The endeavors like dnsspoof and Ettercap to direct any traffic on your LAN(www.bankofamerica.com) to our web server
+
+--Using apt to handle software--
+
+-Searching for a Package-
+
+$ apt-cache search keyword
+
+
+--Adding repositories to your sources.lsit file--
+
+$ vi /etc/apt/sources.list
+
+Linux distributions divide repositories into separate categories like Ubuntu breaks out its repository as follows:
+
+- main: contains supported open source software
+
+- universe: contains community-maintained open source software
+
+- multiverse: contains software restricted by copyright or other legal issues
+
+- restricted: contains proprietary device drivers
+
+- backports: contains package from later releases
+
+To install oracle 8 we could do it by apt-get install oracle-java8-installer command but we need to add the necessary repositories:
+
+deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main
+deb­src http://ppa.launchpad.net/webupd8team/java/ubuntu precise main
+
+
+
