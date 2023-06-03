@@ -262,5 +262,35 @@ To install oracle 8 we could do it by apt-get install oracle-java8-installer com
 deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main
 deb­src http://ppa.launchpad.net/webupd8team/java/ubuntu precise main
 
+---Chapter 5---
+
+--Granting Permision--
+
+The three levels of permission are as follows:
+
+*r = permission to read. This grants permission only to view and edit a file
+
+*w = permission to write. This allows users to view and edit a file
+
+*x = permission to execute. Allows users to execute a file(not necessarily view or edit it)
 
 
+--Granting Ownership to an Individual User--
+
+chown(change owner)
+
+$ chown bob /tmp/bosbfile (Grants the user account bob for Ownership)
+
+--Granting Ownership to a Group--
+
+chgrp( change group)
+
+The root group needs access to the hacking tools, whereas the security folk only need access to defensive tools such as an intrusion dection system(IDS)
+
+$ chgrp securiy newIDS
+
+This command passes the securiy group, ownership of newIDS
+
+--Checking permissions--
+
+$ ls -l /usr/share/hashcat
