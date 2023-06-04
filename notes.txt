@@ -294,3 +294,73 @@ This command passes the securiy group, ownership of newIDS
 --Checking permissions--
 
 $ ls -l /usr/share/hashcat
+(1) (2) (3)
+drwxwr-xr-x 5 root 4096 Dec 5:10:47 charsets
+(1 -the file type)(2- The permission on the file for owner, groups and users, respectively) (3-The number of links(This topic is beyond the scope of the book.)
+
+Another example:
+
+-rw-r--r--1 root root 33685504 June 28 2018 hascat.hctast
+
+after the file is called we initial( indicates it's a file) the permissions rw- tell us that the owner has read and write permission but not execute permission.
+
+The next set of permission(r--) represents those of the group and shows that the group has read permision but not write or execute permissions. And finally we see that the rest of the users also have onlt read permission(r--)
+
+--Changing permission--
+
+---Changing Permission with Decimal Notation---
+ All the permission are represented in bynary in an operatyng system, so ON and OFF switches are represented by 1 and 0 and for exmple rwx(three on/off switches we granted to the same to 111 in binary)
+
+A binary set is easy represented in an octal(starts with 0 and ends with 7)
+
+--------------
+BianryOctalrwx
+--------------
+
+000 0 ---
+--------------
+
+000 1 --x
+
+--------------
+
+010 2 -w-
+
+--------------
+
+011 3 --x
+
+--------------
+
+100 4 r--
+
+--------------
+
+101 5 r--
+
+--------------
+
+110 6 rw-
+
+--------------
+
+111 7 rwx
+
+--------------
+
+Some examples
+
+rwx
+421 = 7
+
+So if we wanted to represent all permissios for the owner, group, and all users, we could write it as follows: 777
+
+Here's where the shortcut comes in. By passing chmod three octal digits(one for each rwx set) followed by a filename, we can change permissions of user:
+
+chmod 774 hashcat.hcsat
+
+we could check it again and we are going to expect:
+
+-rwxrwxr--
+
+--Changing Permissions with UGO--
