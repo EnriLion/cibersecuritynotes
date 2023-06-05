@@ -364,3 +364,13 @@ we could check it again and we are going to expect:
 -rwxrwxr--
 
 --Changing Permissions with UGO--
+
+You need to find what way more suits for you. The symbolic method is often referred to as the UGO syntax
+
+We can alter the  operator, inclue the permission you want to add or remove(rwx) and finally the name of the file to apply it to.
+
+We want to remove the write permission from the user that the file  hascat.hcstat to could enter the following:
+
+$ chmod u-w hascat.hcstat
+
+Says to remove(-) the write (w) permission from hashcat.hcstat for the user(u)

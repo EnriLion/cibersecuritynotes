@@ -27,3 +27,4 @@ $ dg hackaday.com mx
 
 $ echo 'nameserver 192.41.0.4' > sudo vi /etc/resolv.conf
 
+
