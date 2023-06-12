@@ -374,3 +374,53 @@ We want to remove the write permission from the user that the file  hascat.hcsta
 $ chmod u-w hascat.hcstat
 
 Says to remove(-) the write (w) permission from hashcat.hcstat for the user(u)
+
+--Giving root execute Permission on a New Tool--
+
+For default the hackingtyools that we download are files with the default 666 and 777 respective
+
+#We can give ourseleves permission to execute newhackertool by entering
+
+$ chmod 766 newhacketool
+
+$ ls -l
+
+--snip--
+
+-rwxrw-rw-1 root root 1072 Dec 5 11:17 newhackertool
+
+As you now undestand, this grant us (as the owner) all permissions, inclusing execute, and grants the group and everyone else only read and write permissions(4 + 2 = 6)
+
+--Setting more secure default permissions with masks--
+
+Linux automatically assigns base permissions- usually 666 for files and 77 for directories. We can change the default permission allocated ot fils an directiores created by each user with the umask(unmask) method. The umask method represents the permissions you want to remove from the base permissions on a file or a directory to make them more secure.
+
+Umask = three-digit decimal number corresponding to the three permissions digits but the umask number is subtracted from the permission number to give the new permissions status. This means that when a new file or directoy is created, its permissions are set to the default value mins in umask.
+
+--------------------------------------------------------
+New Files                |   New directories
+--------------------------------------------------------
+6 6 6                    |   7 7 7 Linux base permissions
+--------------------------------------------------------
+0 2 2                    |   - 0 2 2 umask
+--------------------------------------------------------
+6 4 4                    |   7 5 5  Resulting permissions
+--------------------------------------------------------
+
+The previous tables show how a umask value of 022 affects the permissions on a new files and directories
+
+For example if the umask is set to the 022 a newfile with the original default permissions of 666 will now have the permissions 644 meaning the owner has both readn and write permissions, and the group and all other users have only read permission.
+
+In Kali as Debian distributions the umask is preconfigured to 022 meaning the Kali default is 644 for files and 755 for directories
+
+To change the umask value for a user, edit the file /home/username/.profile and add umask 007 to set it so only the user and members of the user's group have permissions.
+
+--Special permissions--
+
+Linux has three special permission that are slightly more complicated. The special permissions are set user ID(SUID) or group ID(SGID) and sticky bit.
+
+--Granting Temporary Root Permissions with SUID--
+
+The SUID bit says tha any user can execute the file with the permissions of the owner but those permissions don't extend beyond the use of that file
+
+To set the SUID bit,  enter a 4 beofre the regular permissions, so a file with a new resulting permission of 644 is represented by 4644 when the SUID bit is set. for example in a permission 644 is represented as 4644  when the SUID bit is set
