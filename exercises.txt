@@ -27,4 +27,9 @@ $ dg hackaday.com mx
 
 $ echo 'nameserver 192.41.0.4' > sudo vi /etc/resolv.conf
 
+--chapter 5--
+
+#UGO(User who creates the file, group that owns the fil and others(everyon else) method
+
+$ chmod u+rwx,o+rwx file
 

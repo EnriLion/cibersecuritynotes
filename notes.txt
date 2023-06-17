@@ -445,3 +445,24 @@ A hacker could use the Linux system through privelege escalation using root priv
 # find / -user root -perm -4000
 
 # With this command we start looking at the top of the filesystem with the / syntax. Then looks everywhere below /for files that are owned by root, specified with user root, and that have the SUID permission bit set( -perm -4000)
+
+and we get an output like this:
+
+/usr/bin/chsh
+/usr/bin/gspasswd
+/usr/bin/pkexec
+/usr/bin/sudo
+/usr/bin/passwd
+/usr/bin/kismet_capture
+
+--snip--
+
+cd/ usr/bin
+
+ls -l
+
+­rwxr­xr­x 1 root root 176272 Jul 18 2018 stunnel4
+­rwxr­xr­x 1 root root 26696 Mar 17 2018 sucrack
+1)rwsr­xr­x 1 root root 140944 Jul 5 2018 sudo
+
+#We could see that has an s in place of x this is how the linux represents that the SUID and a hacker could gain control of access  expliting the SUID and SGID 
