@@ -466,3 +466,9 @@ ls -l
 1)rwsr­xr­x 1 root root 140944 Jul 5 2018 sudo
 
 #We could see that has an s in place of x this is how the linux represents that the SUID and a hacker could gain control of access  expliting the SUID and SGID 
+
+--6 Process Management--
+
+ps aux( will show all process running on the systems for all users)
+
+

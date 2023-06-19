@@ -33,3 +33,15 @@ $ echo 'nameserver 192.41.0.4' > sudo vi /etc/resolv.conf
 
 $ chmod u+rwx,o+rwx file
 
+#Chose another file and change its ownership using chown
+
+$ chmown user /boot/config-5.15.0-71-generic
+
+# Use the find command to find all files with SGID bit set
+
+$ chmod u+rwx,o+rwx file
+
+# Use the find command to find all files with the SGID bit set
+
+find -user root -perm -4000 
+
