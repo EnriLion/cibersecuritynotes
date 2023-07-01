@@ -45,3 +45,30 @@ $ chmod u+rwx,o+rwx file
 
 find -user root -perm -4000 
 
+USER - The user who invoked the process
+
+PID - The process ID
+
+%CPU - The percent of CPU this process is using
+
+%MEM - The percent of memory this process is using.
+
+COMMAND - The name of the command that started the process
+
+-Filtering by Process Name-
+
+$ msfconsole
+
+$ ps aux | grep msfconsole
+
+leon 13705 93.6 3.1 121552 64188 pts/1 Rl+ 16:53 0:02 ruby /user/bin/msfconsole
+
+The PostgreSQL is the database Metasploit uses, is shown first then msfconsole program itself /usr/bin/msfconsole for example using 93.6 percent of your CPU(it's a demaning msfconsole)
+
+-Finding the Greediest Processes with top-
+
+$ top( when we enter the ps( displayed the order they were started and since the kernel assings PIDs in the order they have started)
+
+SysAdmin often keep top running in a terminal to monitor use of process resourses with h ?(inside the top managaing process we could handle commands)
+
+-Managing Processes-

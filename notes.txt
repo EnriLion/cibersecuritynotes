@@ -469,6 +469,28 @@ ls -l
 
 --6 Process Management--
 
+--viewing processes--
+
 ps aux( will show all process running on the systems for all users)
 
+May of the dails(PID, %CPU, TIME, COMMAND and so on)
 
+Columns:
+
+USER - The user who invoked the process
+
+PID - The process ID
+
+%CPU - The percent of CPU this process is using
+
+%MEM - The percent of memory this process is using
+
+COMMAND - The name of the command that started the process
+
+--Filtering by process Name--
+
+Metasploil exploitation framework(the most widely used exploitation framework and nearly every hacker's good friend)
+
+$ msfconsole
+
+$ ps aux | grep msfconsole
