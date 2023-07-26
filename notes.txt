@@ -493,4 +493,64 @@ Metasploil exploitation framework(the most widely used exploitation framework an
 
 $ msfconsole
 
-$ ps aux | grep msfconsole
+$ ps aux | grep msfconsole # We filtered the otuput in this listing, we should see all the processes that match the term msfconsole. The PostgreSQL( uses metaspoit)
+root 39756 0.0 0.0 4304 716 pts/2 Ss+ 15:13 0:00 sh ­c service
+postgresql start && msfdb init & msfconsole
+root 39759 35.1 15.2 4304 227888 pts/2 Sl+ 15:13 1:36 ruby /usr/bin/
+msfconsole
+root 39892 0.0 0.0 4304 940 pts/2 S+ 15:18 0:00 grep msfconsole
+
+We could see in the third column(CPU column) that it's using 35.1 percent of our CPU, and consult the fourth column that it's using the 15.2 percent of our system memory
+
+--Finding the Greediest Processes with  top---
+
+top  = know which procesess are using the most resources
+
+$ top
+
+top ­ 15:31:17 up 2 days, ^;50, 4 users, load average: 0.00, 0.04, 0.09
+Tasks: 176 total, 1 running, 175 sleeping, 0 stopped, 0 zombie
+%Cpu(s): 1.3 us, 0.7 sy, ).) ni, 97.4 id, 0.0 wa, 0.0 hi 0.0 si 0.0
+KiB Mem : 1491220 total, 64848 free, 488272 used, 938100 buff/cache
+KiB Swap : 1046524 total, 1044356 free, 2168 used. 784476 avail MEM
+PID USER PR NI VIRT RES
+SHR S %CPU %MEM TIME+ COMMAND
+39759 root 20 0 893180 247232 11488 S 0.7 16.6 1:47.88 ruby
+39859 root 20 0 27308 16796 14272 S 0.3 1.2 1:47.88 postgres
+39933 root 20 0 293936 61500 29108 S 0.7 4.1 1:47.88 Xorg
+
+Sysadmin ofte keep top running in a terminal to monitor use of process resources
+
+H or ? - interactive commands
+Q will quit top
+
+--Changing Process Priority with nice--
+
+We can use nice to suggest that a process should be elevated in priority
+
+"When you use how "nice" you will be to other uses: if you process is using most of the system resources, you aren't being very nice"
+
+The values of nice range from -20 to +19 with zero being the defualt value ( a high value translates to a low priority and low nice value trsnaltes to a high priority)
+
+-20            0                  +19
+|---------------|-----------------|
+Most         Default           Least likey to 
+likely        nice             receive priority
+to            value
+receive
+priority
+
+--Setting the Priority When Starting a Process--
+
+nice -n -10 /bin/slowprocess # to increment a value allocating it more resources
+
+
+nice -n -10 /bin/slowprocess # lower priority to the process
+
+
+--Changing the priority of a running process with renice--
+
+The renice command takes absolute values between -20 and 19 and sets the priority to that particular level, rather than increasing or drecreasing form the level at whcih it started.
+
+renice 20 6996(rince the slowprocess of the pid 6996)
+
